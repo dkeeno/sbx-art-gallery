@@ -1,0 +1,161 @@
+{{- /* shared chrome via define+template — lighter than a layout helper */ -}}
+
+{{- define "head" -}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ . }} — Art Gallery</title>
+<style>
+  :root {
+    --ink-900: #0f172a; --ink-700: #334155; --ink-500: #64748b;
+    --ink-300: #cbd5e1; --ink-200: #e2e8f0; --ink-100: #f1f5f9; --ink-50: #f8fafc;
+    --bg: #ffffff;
+    --accent-700: #7c2d12; --accent-600: #9a3412; --accent-50: #fef2f2;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, system-ui, sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
+    --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, monospace;
+    --shadow-md: 0 4px 12px rgba(15,23,42,.06), 0 1px 2px rgba(15,23,42,.04);
+    --radius: 4px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body { margin: 0; font-family: var(--font-sans); background: var(--ink-50); color: var(--ink-900); line-height: 1.55; font-size: 15px; }
+
+  .topbar { background: var(--bg); border-bottom: 1px solid var(--ink-200); }
+  .topbar-inner { max-width: 1180px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 1rem; color: var(--ink-900); }
+  .brand .mark { width: 30px; height: 30px; border-radius: 6px; background: var(--accent-700); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .85rem; letter-spacing: .04em; font-family: var(--font-serif); }
+  .topbar nav { display: flex; gap: 22px; font-size: .92rem; }
+  .topbar nav a { color: var(--ink-500); text-decoration: none; font-weight: 500; }
+  .topbar nav a:hover { color: var(--ink-900); }
+
+  .hero { background: var(--bg); border-bottom: 1px solid var(--ink-200); }
+  .hero-inner { max-width: 1180px; margin: 0 auto; padding: 56px 32px 48px; }
+  .hero h1 { margin: 0 0 12px; font-size: 2.2rem; line-height: 1.1; letter-spacing: -.025em; font-weight: 600; color: var(--ink-900); max-width: 700px; font-family: var(--font-serif); }
+  .hero p { margin: 0; font-size: 1.02rem; color: var(--ink-500); max-width: 620px; }
+
+  main { max-width: 1180px; margin: 0 auto; padding: 36px 32px 64px; }
+
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--ink-200); }
+  .section-head h2 { margin: 0; font-size: 1.05rem; font-weight: 600; font-family: var(--font-serif); }
+  .section-head .count { font-size: .82rem; color: var(--ink-500); font-variant-numeric: tabular-nums; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .work { background: var(--bg); border: 1px solid var(--ink-200); border-radius: var(--radius); overflow: hidden; transition: border-color .15s, box-shadow .15s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .work:hover { border-color: var(--ink-300); box-shadow: var(--shadow-md); }
+  .work .thumb { aspect-ratio: 4 / 3; background: var(--ink-100); }
+  .work .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .work-meta { padding: 18px 20px 20px; }
+  .work .id { font-size: .7rem; color: var(--ink-500); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .08em; font-weight: 500; }
+  .work .title { margin: 6px 0 4px; font-size: 1rem; font-weight: 600; color: var(--ink-900); line-height: 1.3; font-family: var(--font-serif); }
+  .work .artist { font-size: .88rem; color: var(--ink-700); }
+  .work .year-museum { margin-top: 8px; font-size: .78rem; color: var(--ink-500); display: flex; gap: 8px; }
+  .work .year-museum span:not(:first-child)::before { content: "·"; margin-right: 8px; color: var(--ink-300); }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-500); text-decoration: none; font-size: .88rem; margin-bottom: 16px; }
+  .back-link:hover { color: var(--accent-700); }
+  .detail { background: var(--bg); border: 1px solid var(--ink-200); border-radius: var(--radius); overflow: hidden; display: grid; grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr); }
+  @media (max-width: 760px) { .detail { grid-template-columns: 1fr; } }
+  .detail .thumb { background: var(--ink-100); aspect-ratio: 4 / 3; }
+  .detail .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .detail .info { padding: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .detail .id { font-family: var(--font-mono); font-size: .7rem; color: var(--ink-500); text-transform: uppercase; letter-spacing: .08em; }
+  .detail h1 { margin: 0; font-size: 1.6rem; line-height: 1.2; font-family: var(--font-serif); font-weight: 600; letter-spacing: -.015em; }
+  .detail .artist { color: var(--ink-700); font-size: 1rem; }
+  .detail dl { margin: 8px 0 0; display: grid; grid-template-columns: 90px 1fr; gap: 8px 16px; font-size: .9rem; }
+  .detail dt { color: var(--ink-500); font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; padding-top: 2px; }
+  .detail dd { margin: 0; color: var(--ink-900); }
+  .detail dd code { font-family: var(--font-mono); font-size: .92em; background: var(--ink-100); padding: 1px 6px; border-radius: 3px; color: var(--ink-700); }
+
+  footer { border-top: 1px solid var(--ink-200); background: var(--bg); margin-top: 32px; }
+  .footer-inner { max-width: 1180px; margin: 0 auto; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: .82rem; color: var(--ink-500); }
+  .footer-inner a { color: var(--ink-500); text-decoration: none; }
+  .footer-inner a:hover { color: var(--accent-700); }
+  .footer-inner .links { display: flex; gap: 18px; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.6rem; }
+    .topbar-inner, .hero-inner, main, .footer-inner { padding-left: 20px; padding-right: 20px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="mark">AG</span><span>Art Gallery</span></div>
+    <nav>
+      <a href="/art-gallery/">Collection</a>
+      <a href="/art-gallery/api/works">API</a>
+      <a href="/art-gallery/healthz">Status</a>
+    </nav>
+  </div>
+</div>
+{{- end -}}
+
+{{- define "foot" -}}
+<footer>
+  <div class="footer-inner">
+    <span>© Art Gallery · sbx-02 reference deployment · all works in the public domain</span>
+    <span class="links"><a href="/art-gallery/api/works">API</a><a href="/art-gallery/healthz">Health</a></span>
+  </div>
+</footer>
+</body>
+</html>
+{{- end -}}
+
+{{- /* ----- list page (passed: { Works: []Work }) ----- */ -}}
+{{- define "list" -}}
+{{- template "head" "Permanent Collection" -}}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>A small selection of public-domain fine art.</h1>
+    <p>Six works spanning four centuries, served by a single Go binary running on GKE Autopilot. Embedded SVGs only — no external CDN, no database, no state. Delivered end-to-end by a hands-off GitOps loop.</p>
+  </div>
+</section>
+<main>
+  <div class="section-head">
+    <h2>Permanent Collection</h2>
+    <span class="count">{{ len .Works }} works</span>
+  </div>
+  <div class="grid">
+    {{- range .Works }}
+    <a class="work" href="{{ .DetailPath }}">
+      <div class="thumb"><img src="{{ .SVGPath }}" alt="{{ .Title }} by {{ .Artist }}" loading="lazy"></div>
+      <div class="work-meta">
+        <span class="id">{{ .ID }}</span>
+        <div class="title">{{ .Title }}</div>
+        <div class="artist">{{ .Artist }}</div>
+        <div class="year-museum"><span>{{ .Year }}</span><span>{{ .Museum }}</span></div>
+      </div>
+    </a>
+    {{- end }}
+  </div>
+</main>
+{{- template "foot" -}}
+{{- end -}}
+
+{{- /* ----- detail page (passed: { Work: Work }) ----- */ -}}
+{{- define "detail" -}}
+{{- template "head" .Work.Title -}}
+<main style="padding-top: 32px;">
+  <a class="back-link" href="/art-gallery/">← Back to collection</a>
+  <article class="detail">
+    <div class="thumb"><img src="{{ .Work.SVGPath }}" alt="{{ .Work.Title }} by {{ .Work.Artist }}"></div>
+    <div class="info">
+      <span class="id">{{ .Work.ID }}</span>
+      <h1>{{ .Work.Title }}</h1>
+      <div class="artist">{{ .Work.Artist }}</div>
+      <dl>
+        <dt>Year</dt><dd>{{ .Work.Year }}</dd>
+        <dt>Museum</dt><dd>{{ .Work.Museum }}</dd>
+        <dt>API</dt><dd><code>/art-gallery/api/works/{{ .Work.ID }}</code></dd>
+        <dt>Image</dt><dd><code>{{ .Work.SVGPath }}</code></dd>
+      </dl>
+    </div>
+  </article>
+</main>
+{{- template "foot" -}}
+{{- end -}}

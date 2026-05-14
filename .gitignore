@@ -1,0 +1,13 @@
+# Compiled Go binary (in case anyone builds locally)
+art-gallery
+/art-gallery
+*.test
+*.out
+
+# IDE
+.vscode/
+.idea/
+
+# OS noise
+.DS_Store
+Thumbs.db

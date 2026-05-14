@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#5d4a2e"/>
+      <stop offset="60%" stop-color="#3a2d1c"/>
+      <stop offset="100%" stop-color="#1a1410"/>
+    </linearGradient>
+    <linearGradient id="distant" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#7a6a4a"/>
+      <stop offset="100%" stop-color="#3a2d1c"/>
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="35%" r="60%">
+      <stop offset="0%"  stop-color="#e6c89a"/>
+      <stop offset="60%" stop-color="#a8845c"/>
+      <stop offset="100%" stop-color="#5e4a32"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#bg)"/>
+
+  <!-- Distant landscape hint behind the figure -->
+  <path d="M 0 180 Q 80 150 140 175 Q 200 160 270 180 Q 330 165 400 180 L 400 300 L 0 300 Z" fill="url(#distant)"/>
+  <path d="M 60 175 Q 90 145 120 175 Z" fill="#5d4a2e" fill-opacity="0.7"/>
+  <path d="M 280 175 Q 310 150 340 175 Z" fill="#5d4a2e" fill-opacity="0.7"/>
+
+  <!-- Figure silhouette: shoulders -->
+  <path d="M 120 300 Q 130 220 200 200 Q 270 220 280 300 Z" fill="#1a1410"/>
+
+  <!-- Hair on either side -->
+  <path d="M 154 200 Q 145 150 175 130 Q 175 170 168 198 Z" fill="#0d0a08"/>
+  <path d="M 246 200 Q 255 150 225 130 Q 225 170 232 198 Z" fill="#0d0a08"/>
+
+  <!-- Face (oval) -->
+  <ellipse cx="200" cy="158" rx="38" ry="46" fill="url(#face)"/>
+
+  <!-- Suggested features -->
+  <ellipse cx="186" cy="155" rx="3" ry="2" fill="#3a2d1c"/>
+  <ellipse cx="214" cy="155" rx="3" ry="2" fill="#3a2d1c"/>
+  <path d="M 196 178 Q 200 184 204 178" stroke="#5e3e22" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <line x1="200" y1="160" x2="200" y2="172" stroke="#7d5a36" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- Hands folded (simple shapes) -->
+  <path d="M 175 268 Q 200 256 225 268 Q 218 286 200 286 Q 182 286 175 268 Z" fill="#a8845c"/>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#e7d8b6"/>
+      <stop offset="60%" stop-color="#c8b88f"/>
+      <stop offset="100%" stop-color="#a89668"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#1d3b6d"/>
+      <stop offset="100%" stop-color="#0a1f47"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#4d7ab3"/>
+      <stop offset="100%" stop-color="#1d3b6d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="170" fill="url(#sky)"/>
+  <!-- Water under -->
+  <rect y="170" width="400" height="130" fill="url(#water)"/>
+
+  <!-- Mt Fuji silhouette in the distance -->
+  <polygon points="240,170 290,90 340,170" fill="#cdbb8b"/>
+  <polygon points="270,118 290,90 312,118 302,128 290,118 280,128" fill="#fafafa"/>
+
+  <!-- Big curling wave (the iconic claw) -->
+  <path d="M -10 200
+           C 40 130, 110 110, 175 150
+           C 215 175, 235 150, 230 120
+           C 226 95, 200 80, 170 88
+           C 145 95, 130 115, 130 135
+           C 130 160, 160 175, 195 165
+           Q 165 200, 120 200
+           Q 80 200, 60 180
+           Q 35 160, 10 175
+           Q -5 185, -10 200 Z"
+        fill="url(#wave)"/>
+
+  <!-- Foam tendrils on the wave (claws) -->
+  <g fill="#ffffff" fill-opacity="0.92">
+    <path d="M 230 120 q 20 -8 30 0 q -8 4 -16 6 q 6 8 -2 14 q -10 -2 -12 -20 z"/>
+    <path d="M 215 110 q 16 -10 28 -4 q -8 4 -14 6 q 4 8 -4 12 q -10 0 -10 -14 z"/>
+    <circle cx="245" cy="118" r="3"/>
+    <circle cx="252" cy="124" r="2.5"/>
+    <circle cx="234" cy="106" r="2.5"/>
+    <circle cx="222" cy="100" r="2"/>
+  </g>
+
+  <!-- Smaller wave in foreground -->
+  <path d="M 0 240 Q 60 215 120 240 Q 180 260 240 240 Q 300 220 360 240 Q 380 245 400 235 L 400 300 L 0 300 Z"
+        fill="#0a1f47"/>
+  <path d="M 0 260 Q 80 245 160 260 Q 240 275 320 258 Q 360 252 400 260"
+        stroke="#4d7ab3" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
+</svg>

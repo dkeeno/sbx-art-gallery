@@ -1,0 +1,32 @@
+name: build
+
+on:
+  pull_request:
+    paths:
+      - '**.go'
+      - 'go.mod'
+      - 'Dockerfile'
+      - 'index.html'
+      - 'static/**'
+      - '.github/workflows/**'
+  push:
+    branches: [main]
+    paths:
+      - '**.go'
+      - 'go.mod'
+      - 'Dockerfile'
+      - 'index.html'
+      - 'static/**'
+      - '.github/workflows/**'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    uses: dkeeno/sbx-ci-templates/.github/workflows/build-and-push.yml@v1.1.0
+    with:
+      image_name: art-gallery
+    secrets:
+      aws_role_arn: ${{ secrets.AWS_ROLE_ARN }}

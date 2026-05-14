@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <radialGradient id="moon" cx="78%" cy="22%" r="14%">
+      <stop offset="0%" stop-color="#ffe28a"/>
+      <stop offset="60%" stop-color="#f0c14b"/>
+      <stop offset="100%" stop-color="#0d1b3a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#0a1f47"/>
+      <stop offset="60%" stop-color="#163a7a"/>
+      <stop offset="100%" stop-color="#0d244e"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1a2a3f"/>
+      <stop offset="100%" stop-color="#06101f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#sky)"/>
+
+  <!-- Big swirl in the centre — two interlocking spiral-ish curves -->
+  <path d="M 80 130 q 60 -90 160 -30 q 90 50 -10 90 q -110 30 -150 -60 z"
+        fill="none" stroke="#cfd9ff" stroke-width="6" stroke-opacity="0.55"/>
+  <path d="M 110 140 q 50 -55 130 -10 q 70 40 -20 70 q -90 20 -110 -60 z"
+        fill="none" stroke="#9fb6f0" stroke-width="4" stroke-opacity="0.75"/>
+
+  <!-- Moon with halo -->
+  <circle cx="312" cy="66" r="38" fill="url(#moon)"/>
+  <circle cx="312" cy="66" r="14" fill="#ffe28a"/>
+
+  <!-- Stars: small halos -->
+  <g fill="#ffe28a">
+    <circle cx="55"  cy="50"  r="3.2"/>
+    <circle cx="120" cy="40"  r="2.4"/>
+    <circle cx="180" cy="70"  r="3"/>
+    <circle cx="245" cy="38"  r="2.2"/>
+    <circle cx="358" cy="120" r="2.8"/>
+    <circle cx="60"  cy="170" r="2.4"/>
+  </g>
+  <g fill="#ffe28a" fill-opacity="0.25">
+    <circle cx="55"  cy="50"  r="9"/>
+    <circle cx="180" cy="70"  r="9"/>
+    <circle cx="358" cy="120" r="9"/>
+  </g>
+
+  <!-- Cypress silhouette on the left -->
+  <path d="M 12 300 Q 28 240 22 180 Q 18 120 30 70 Q 40 110 38 170 Q 42 240 56 300 Z" fill="#0a1322"/>
+
+  <!-- Village / land at the bottom -->
+  <rect x="0" y="245" width="400" height="55" fill="url(#land)"/>
+  <g fill="#0c1a30">
+    <rect x="120" y="226" width="22" height="22"/>
+    <polygon points="118,226 144,226 131,212"/>
+    <rect x="160" y="234" width="14" height="14"/>
+    <rect x="186" y="220" width="40" height="28"/>
+    <polygon points="184,220 228,220 206,200"/>
+    <rect x="246" y="234" width="18" height="14"/>
+  </g>
+  <g fill="#f0c14b" fill-opacity="0.85">
+    <rect x="125" y="232" width="4" height="5"/>
+    <rect x="194" y="228" width="4" height="5"/>
+    <rect x="216" y="228" width="4" height="5"/>
+  </g>
+</svg>

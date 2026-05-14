@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#fbb650"/>
+      <stop offset="40%" stop-color="#e64d2e"/>
+      <stop offset="80%" stop-color="#a82a1d"/>
+      <stop offset="100%" stop-color="#5b1a13"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#1a3a6b"/>
+      <stop offset="100%" stop-color="#0a1f3f"/>
+    </linearGradient>
+    <linearGradient id="bridge" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%"  stop-color="#2c1810"/>
+      <stop offset="100%" stop-color="#0e0805"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky: turbulent reds/oranges in horizontal bands -->
+  <rect width="400" height="300" fill="url(#sky)"/>
+
+  <!-- Sky swirl bands -->
+  <path d="M 0 60  Q 100 50 200 65 Q 300 80 400 60 L 400 78 Q 300 95 200 80 Q 100 67 0 78 Z" fill="#fcd089" fill-opacity="0.55"/>
+  <path d="M 0 100 Q 100 92 200 105 Q 300 118 400 100 L 400 116 Q 300 132 200 118 Q 100 107 0 116 Z" fill="#fbb650" fill-opacity="0.55"/>
+  <path d="M 0 138 Q 100 130 200 142 Q 300 155 400 138 L 400 152 Q 300 168 200 155 Q 100 144 0 152 Z" fill="#e87538" fill-opacity="0.55"/>
+
+  <!-- Water -->
+  <path d="M 0 170 L 400 200 L 400 240 L 0 240 Z" fill="url(#water)"/>
+  <path d="M 0 195 Q 100 185 200 205 Q 300 218 400 210" stroke="#3a5a8a" stroke-width="1.2" fill="none" stroke-opacity="0.6"/>
+
+  <!-- Bridge: horizontal beam + railings + diagonal walkway receding -->
+  <polygon points="0,260 400,200 400,300 0,300" fill="url(#bridge)"/>
+  <line x1="0" y1="240" x2="400" y2="184" stroke="#1a0e08" stroke-width="3"/>
+  <line x1="0" y1="234" x2="400" y2="178" stroke="#1a0e08" stroke-width="2"/>
+
+  <!-- Two distant figures on the bridge (top right, smaller) -->
+  <g fill="#1a0e08">
+    <ellipse cx="320" cy="218" rx="6" ry="9"/>
+    <rect x="316" y="222" width="8" height="22"/>
+    <ellipse cx="345" cy="212" rx="5" ry="8"/>
+    <rect x="342" y="216" width="6" height="20"/>
+  </g>
+
+  <!-- The figure foreground left -->
+  <!-- Body: dark wavy silhouette -->
+  <path d="M 88 300 Q 80 240 100 200 Q 122 175 150 178 Q 175 184 175 220 Q 168 270 178 300 Z" fill="#1a1108"/>
+  <!-- Head: pale oval -->
+  <ellipse cx="135" cy="170" rx="22" ry="28" fill="#d8b67a"/>
+  <!-- Head shading -->
+  <ellipse cx="135" cy="178" rx="20" ry="22" fill="#a8865a" fill-opacity="0.55"/>
+  <!-- Two hands clasping the head -->
+  <path d="M 105 162 Q 100 180 110 198 Q 116 188 116 174 Z" fill="#d8b67a"/>
+  <path d="M 165 162 Q 170 180 160 198 Q 154 188 154 174 Z" fill="#d8b67a"/>
+  <!-- The scream: O mouth -->
+  <ellipse cx="135" cy="183" rx="4" ry="9" fill="#1a0a05"/>
+  <!-- Hollow eyes -->
+  <ellipse cx="127" cy="168" rx="2.5" ry="3.5" fill="#1a0a05"/>
+  <ellipse cx="143" cy="168" rx="2.5" ry="3.5" fill="#1a0a05"/>
+</svg>

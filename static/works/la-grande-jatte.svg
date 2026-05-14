@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#a8c5b8"/>
+      <stop offset="100%" stop-color="#cfd9b5"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#7a9a3e"/>
+      <stop offset="100%" stop-color="#4a6a25"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%"  stop-color="#3e5828"/>
+      <stop offset="100%" stop-color="#2a3e1c"/>
+    </linearGradient>
+    <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#e8c14a" fill-opacity="0.8"/>
+      <circle cx="3" cy="3" r="0.6" fill="#c87830" fill-opacity="0.7"/>
+    </pattern>
+    <pattern id="dotsCool" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.6" fill="#5a8ec9" fill-opacity="0.7"/>
+      <circle cx="3" cy="3" r="0.6" fill="#b0d4e8" fill-opacity="0.7"/>
+    </pattern>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="120" fill="url(#sky)"/>
+  <!-- Grass field -->
+  <rect y="120" width="400" height="180" fill="url(#grass)"/>
+  <!-- Pointillist warm dots layer over the sun-lit grass -->
+  <rect y="120" width="400" height="180" fill="url(#dots)"/>
+
+  <!-- Tree trunks (right and left foreground) -->
+  <rect x="335" y="60" width="14" height="240" fill="#3a2a1a"/>
+  <ellipse cx="342" cy="70" rx="50" ry="46" fill="#3e5828"/>
+  <ellipse cx="342" cy="70" rx="50" ry="46" fill="url(#dots)" fill-opacity="0.9"/>
+
+  <rect x="20" y="130" width="10" height="170" fill="#3a2a1a"/>
+  <ellipse cx="25" cy="130" rx="34" ry="30" fill="#3e5828"/>
+
+  <!-- River along the back -->
+  <path d="M 0 150 Q 100 142 200 150 Q 300 158 400 148 L 400 168 Q 300 178 200 170 Q 100 162 0 170 Z" fill="#5d8aa8"/>
+  <path d="M 0 150 Q 100 142 200 150 Q 300 158 400 148 L 400 168 Q 300 178 200 170 Q 100 162 0 170 Z" fill="url(#dotsCool)"/>
+
+  <!-- Boats -->
+  <path d="M 80 158 Q 100 158 110 165 Q 90 168 78 165 Z" fill="#f4e4c1"/>
+  <path d="M 250 154 Q 270 154 285 162 Q 260 165 248 162 Z" fill="#f4e4c1"/>
+  <line x1="92" y1="158" x2="92" y2="138" stroke="#d8c598" stroke-width="1.5"/>
+  <line x1="266" y1="154" x2="266" y2="132" stroke="#d8c598" stroke-width="1.5"/>
+
+  <!-- Foreground figures: silhouettes evoking the famous parasol pair -->
+  <!-- Tall woman with bustle, parasol -->
+  <g fill="url(#shade)">
+    <ellipse cx="235" cy="190" rx="11" ry="14"/>           <!-- head -->
+    <path d="M 220 200 L 250 200 L 256 286 L 272 290 L 280 300 L 192 300 L 200 286 L 214 286 Z"/> <!-- dress + bustle -->
+    <ellipse cx="235" cy="172" rx="34" ry="14"/>           <!-- parasol -->
+    <line x1="235" y1="180" x2="235" y2="158" stroke="#1a1108" stroke-width="2"/>
+  </g>
+
+  <!-- Tall man in top hat next to her -->
+  <g fill="url(#shade)">
+    <rect x="165" y="160" width="20" height="22"/>          <!-- top hat -->
+    <ellipse cx="175" cy="190" rx="11" ry="14"/>            <!-- head -->
+    <path d="M 162 200 L 188 200 L 192 300 L 158 300 Z"/>   <!-- coat -->
+  </g>
+
+  <!-- Small dog in foreground -->
+  <ellipse cx="120" cy="270" rx="14" ry="6" fill="#2a3e1c"/>
+  <ellipse cx="108" cy="266" rx="5" ry="4" fill="#2a3e1c"/>
+  <line x1="115" y1="276" x2="115" y2="285" stroke="#2a3e1c" stroke-width="2"/>
+  <line x1="125" y1="276" x2="125" y2="285" stroke="#2a3e1c" stroke-width="2"/>
+</svg>
